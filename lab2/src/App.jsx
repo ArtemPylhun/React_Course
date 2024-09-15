@@ -6,7 +6,7 @@ import SearchInput from "./components/SearchInput";
 
 function App() {
   const [toDos, setToDos] = useState([]);
-  const [newToDo, setNewToDo] = useState(null);
+  const [newToDo, setNewToDo] = useState({});
   const [filterText, setFilterText] = useState("");
 
   function handleNewTitleChange(event) {
@@ -17,9 +17,8 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (newToDo.title) {
-      setToDos([...toDos, toDoWithId]);
-    }
+    setToDos([...toDos, toDoWithId]);
+    setNewToDo({});
   }
 
   function handleDelete(id) {

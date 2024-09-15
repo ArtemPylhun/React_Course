@@ -3,7 +3,7 @@ import React from "react";
 const AddToDoComponent = ({ title = "", onTitleChange, onSubmit }) => {
   return (
     <form>
-      <input defaultValue={title} onChange={onTitleChange} />
+      <input value={title} onChange={onTitleChange} />
       <button onClick={onSubmit}>Add</button>
     </form>
   );
