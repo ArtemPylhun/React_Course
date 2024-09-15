@@ -18,7 +18,7 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     setToDos([...toDos, toDoWithId]);
-    setNewToDo({});
+    setNewToDo(null);
   }
 
   function handleDelete(id) {
