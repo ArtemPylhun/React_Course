@@ -6,7 +6,7 @@ import SearchInput from "./components/SearchInput";
 
 function App() {
   const [toDos, setToDos] = useState([]);
-  const [newToDo, setNewToDo] = useState({});
+  const [newToDo, setNewToDo] = useState(null);
   const [filterText, setFilterText] = useState("");
 
   function handleNewTitleChange(event) {
