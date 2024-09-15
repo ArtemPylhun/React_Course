@@ -1,7 +1,7 @@
 import { useState, useId } from "react";
 import "./App.css";
 import ToDoTable from "./components/ToDoTable";
-import AddToDOComponent from "./components/AddToDOComponent";
+import AddToDoComponent from "./components/AddToDOComponent";
 import SearchInput from "./components/SearchInput";
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
         filterText={filterText}
         onFilterTextChange={handleInputChange}
       />
-      <AddToDOComponent
+      <AddToDoComponent
         title={newToDo?.title}
         onTitleChange={handleNewTitleChange}
         onSubmit={handleSubmit}
