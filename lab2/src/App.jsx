@@ -1,7 +1,7 @@
 import { useState, useId } from "react";
 import "./App.css";
 import ToDoTable from "./components/ToDoTable";
-import AddToDoComponent from "./components/AddToDOComponent";
+import AddToDoComponent from "./components/AddToDoComponent";
 import SearchInput from "./components/SearchInput";
 
 function App() {
@@ -17,7 +17,9 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setToDos([...toDos, toDoWithId]);
+    if (newToDo.title) {
+      setToDos([...toDos, toDoWithId]);
+    }
   }
 
   function handleDelete(id) {
@@ -32,7 +34,7 @@ function App() {
   }
 
   const filteredToDos = toDos.filter((toDo) => {
-    return toDo.title.toLowerCase().includes(filterText.toLowerCase());
+    return toDo.title?.toLowerCase().includes(filterText.toLowerCase());
   });
 
   return (
