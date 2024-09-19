@@ -1,23 +1,24 @@
-import { useState, useId } from "react";
-import "./App.css";
-import ToDoTable from "./components/ToDoTable";
-import AddToDoComponent from "./components/AddToDoComponent";
-import SearchInput from "./components/SearchInput";
-import PageTitle from "./components/PageTitle";
-
-function App() {
+import React from "react";
+import AddToDoComponent from "./AddToDoComponent";
+import SearchInput from "./SearchInput";
+import ToDoTable from "./ToDoTable";
+import { useState } from "react";
+const ToDoContainer = () => {
   const [toDos, setToDos] = useState([]);
   const [newToDo, setNewToDo] = useState(null);
   const [filterText, setFilterText] = useState("");
+
+  const filteredToDos = toDos.filter((toDo) => {
+    return toDo.title?.toLowerCase().includes(filterText.toLowerCase());
+  });
 
   function handleNewTitleChange(event) {
     setNewToDo({ title: event.target.value });
   }
 
-  const toDoWithId = { ...newToDo, id: Date.now() };
-
   function handleSubmit(event) {
     event.preventDefault();
+    const toDoWithId = { ...newToDo, id: Date.now() };
     setToDos([...toDos, toDoWithId]);
     setNewToDo(null);
   }
@@ -33,13 +34,8 @@ function App() {
     setFilterText(event.target.value);
   }
 
-  const filteredToDos = toDos.filter((toDo) => {
-    return toDo.title?.toLowerCase().includes(filterText.toLowerCase());
-  });
-
   return (
     <>
-      <PageTitle title={"ToDo App"} />
       <SearchInput
         filterText={filterText}
         onFilterTextChange={handleInputChange}
@@ -52,6 +48,6 @@ function App() {
       <ToDoTable toDos={filteredToDos} handleDeleteButtonClick={handleDelete} />
     </>
   );
-}
+};
 
-export default App;
+export default ToDoContainer;
