@@ -6,11 +6,9 @@ import { useState } from "react";
 import { useGetAllToDo } from "../hooks/useGetAllToDo";
 import Loader from "./Loader";
 const ToDoContainer = () => {
-  const [toDos, setToDos] = useState([]);
+  const { toDos, setToDos, isLoading, error } = useGetAllToDo();
   const [newToDo, setNewToDo] = useState(null);
   const [filterText, setFilterText] = useState("");
-
-  let { isLoading, error } = useGetAllToDo({ setToDos });
 
   const filteredToDos = toDos.filter((toDo) => {
     return toDo.title?.toLowerCase().includes(filterText.toLowerCase());

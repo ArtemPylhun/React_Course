@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useState } from "react";
 
-export const useGetAllToDo = ({setToDos}) => {
+export const useGetAllToDo = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const [toDos, setToDos] = useState([])
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -26,6 +27,6 @@ export const useGetAllToDo = ({setToDos}) => {
         }, 2000)
       }, []);
 
-      return {isLoading, error};
+      return {toDos, setToDos, isLoading, error};
 }
 
