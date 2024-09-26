@@ -39,9 +39,7 @@ const ToDoContainer = () => {
   if (error) {
     return <p>Error {error.message}</p>;
   }
-  if (filteredToDos.length === 0) {
-    return <p>No data to display!</p>;
-  }
+
   return (
     <>
       <SearchInput
@@ -56,10 +54,12 @@ const ToDoContainer = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <ToDoTable
-          toDos={filteredToDos}
-          handleDeleteButtonClick={handleDelete}
-        />
+        <>
+          <ToDoTable
+            toDos={filteredToDos}
+            handleDeleteButtonClick={handleDelete}
+          />
+        </>
       )}
     </>
   );

@@ -1,6 +1,9 @@
 import React from "react";
 
 const ToDoTable = ({ toDos, handleDeleteButtonClick }) => {
+  if (toDos.length === 0) {
+    return <p>No data to display!</p>;
+  }
   return (
     <table>
       <thead>
