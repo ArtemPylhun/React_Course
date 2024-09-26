@@ -36,6 +36,12 @@ const ToDoContainer = () => {
     setFilterText(event.target.value);
   }
 
+  if (error) {
+    return <p>Error {error.message}</p>;
+  }
+  if (filteredToDos.length === 0) {
+    return <p>No data to display!</p>;
+  }
   return (
     <>
       <SearchInput
@@ -49,8 +55,6 @@ const ToDoContainer = () => {
       />
       {isLoading ? (
         <Loader />
-      ) : error ? (
-        <p>Error {error.message}</p>
       ) : (
         <ToDoTable
           toDos={filteredToDos}
