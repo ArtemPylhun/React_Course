@@ -1,15 +1,17 @@
-import { DNA } from "react-loader-spinner";
-
-const Loader = () => {
+import BarLoader from "react-spinners/BarLoader";
+const Loader = ({ isLoading, children }) => {
   return (
-    <DNA
-      visible={true}
-      height="80"
-      width="80"
-      ariaLabel="dna-loading"
-      wrapperStyle={{}}
-      wrapperClass="dna-wrapper"
-    />
+    <div style={{ position: "relative" }}>
+      <div style={{ position: "absolute", top: "50px", left: "85px" }}>
+        <BarLoader
+          loading={isLoading}
+          aria-label="Loading Spinner"
+          size={150}
+          data-testid="loader"
+        />
+      </div>
+      {children}
+    </div>
   );
 };
 

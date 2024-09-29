@@ -7,6 +7,7 @@ import { useGetAllToDo } from "../hooks/useGetAllToDo";
 import Loader from "./Loader";
 const ToDoContainer = () => {
   const { toDos, setToDos, isLoading, error } = useGetAllToDo();
+
   const [newToDo, setNewToDo] = useState(null);
   const [filterText, setFilterText] = useState("");
 
@@ -51,16 +52,12 @@ const ToDoContainer = () => {
         onTitleChange={handleNewTitleChange}
         onSubmit={handleSubmit}
       />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <ToDoTable
-            toDos={filteredToDos}
-            handleDeleteButtonClick={handleDelete}
-          />
-        </>
-      )}
+      <Loader isLoading={isLoading}>
+        <ToDoTable
+          toDos={filteredToDos}
+          handleDeleteButtonClick={handleDelete}
+        />
+      </Loader>
     </>
   );
 };

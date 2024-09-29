@@ -1,0 +1,4 @@
+Description:
+useLoading - a hook to operate isLoading state that will be called inside useGetAllData hook
+useGetAllToDo - a hook to get data from the API and save it to a state that is used in ToDoContainer
+Loading component uses 'Children as prop' pattern and component 'BarLoader' from react-spinners library
