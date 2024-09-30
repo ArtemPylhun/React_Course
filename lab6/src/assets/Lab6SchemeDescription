@@ -1,1 +1,2 @@
-Patterns that were used: child as prop, conditional rendering, controlled inputs.
+Hook useEditToDo was added.
+Patterns that were used: child as prop, conditional rendering.
