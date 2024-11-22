@@ -5,6 +5,7 @@ const UsersTable = ({ users, onDelete }) => {
     <table>
       <thead>
         <tr>
+          <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -14,6 +15,7 @@ const UsersTable = ({ users, onDelete }) => {
       <tbody>
         {users.map((user) => (
           <tr key={user.id}>
+            <td>{user.id}</td>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>
             <td>{user.email}</td>
