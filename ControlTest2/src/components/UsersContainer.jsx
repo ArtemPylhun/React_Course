@@ -20,7 +20,9 @@ const UsersContainer = () => {
 
   return (
     <>
-      <button onClick={loadUsers}>Load Users</button>
+      <button style={{ margin: "20px" }} onClick={loadUsers}>
+        Load Users
+      </button>
       {users.length === 0 ? (
         <p>No users found.</p>
       ) : (
