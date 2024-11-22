@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/UsersTable.css";
+import "../css/usersTable.css";
 
 const UsersTable = ({ users, onDelete }) => {
   return (
